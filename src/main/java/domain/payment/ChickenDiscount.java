@@ -2,7 +2,7 @@ package domain.payment;
 
 import domain.Order;
 
-public class MenuDiscount implements DiscountPolicy {
+public class ChickenDiscount implements DiscountPolicy {
 	private static final int DISCOUNT_PRICE = 10000;
 	private static final int UNIT = 10;
 

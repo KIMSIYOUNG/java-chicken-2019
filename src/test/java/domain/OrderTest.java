@@ -36,4 +36,16 @@ public class OrderTest {
 
 		assertThat(order.calculatePrice()).isEqualTo(180000);
 	}
+
+	@Test
+	@DisplayName("치킨 갯수를 정확하게 반환하는지 테스트합니다.")
+	void getChickenCountTest() {
+		Order order = new Order();
+		Menu menuById = MenuRepository.findMenuById("1");
+		Menu menu = MenuRepository.findMenuById("2");
+		order.add(menuById, 50);
+		order.add(menu, 30);
+		assertThat(order.getChickenCount()).isEqualTo(80);
+	}
+
 }
