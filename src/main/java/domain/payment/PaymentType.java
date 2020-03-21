@@ -18,8 +18,8 @@ public enum PaymentType {
 		this.discountRate = discountRate;
 	}
 
-	public static PaymentType of(int sex) {
-		return Arrays.stream(values()).filter(type -> type.paymentType == sex)
+	public static PaymentType of(int paymentType) {
+		return Arrays.stream(values()).filter(type -> type.paymentType == paymentType)
 			.findAny()
 			.orElseThrow(IllegalArgumentException::new);
 	}

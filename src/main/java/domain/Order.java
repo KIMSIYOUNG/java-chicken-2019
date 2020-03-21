@@ -23,7 +23,7 @@ public class Order {
 
 	public void add(Menu menu, int count) {
 		validateCount(menu, count);
-		order.put(menu, count);
+		order.put(menu, order.get(menu) + count);
 	}
 
 	private void validateCount(Menu menu, int count) {

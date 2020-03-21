@@ -2,7 +2,6 @@ package domain;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class TableId {
 	public static final int TABLE_COUNT = 8;
@@ -45,21 +44,6 @@ public class TableId {
 		if (id < 0) {
 			throw new IllegalArgumentException("음수는 아이디로 사용할 수 없습니다.");
 		}
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		TableId tableId = (TableId)o;
-		return id == tableId.id;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
 	}
 
 	@Override

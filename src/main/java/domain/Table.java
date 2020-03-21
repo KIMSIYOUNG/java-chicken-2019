@@ -17,9 +17,12 @@ public class Table {
 		order.add(menu, count);
 	}
 
-	@Override
-	public String toString() {
-		return String.valueOf(id);
+	public void init() {
+		order.initOrder();
+	}
+
+	public boolean isNotOrdered() {
+		return order.isNotOrdered();
 	}
 
 	public Order getOrder() {
@@ -30,11 +33,8 @@ public class Table {
 		return id;
 	}
 
-	public void init() {
-		order.initOrder();
-	}
-
-	public boolean isNotOrdered() {
-		return order.isNotOrdered();
+	@Override
+	public String toString() {
+		return String.valueOf(id);
 	}
 }

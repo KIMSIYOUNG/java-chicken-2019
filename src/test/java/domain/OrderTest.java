@@ -48,4 +48,12 @@ public class OrderTest {
 		assertThat(order.getChickenCount()).isEqualTo(80);
 	}
 
+	@Test
+	@DisplayName("동일 제품을 두번 주문하는 경우를 테스트합니다.")
+	void orderSameMenuOneMore() {
+		Order order = new Order();
+		order.add(MenuRepository.findMenuById("1"), 8);
+		order.add(MenuRepository.findMenuById("1"), 2);
+		assertThat(order.getChickenCount()).isEqualTo(10);
+	}
 }
