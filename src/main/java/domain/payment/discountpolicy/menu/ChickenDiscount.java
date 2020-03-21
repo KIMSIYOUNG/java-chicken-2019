@@ -1,4 +1,4 @@
-package domain.payment;
+package domain.payment.discountpolicy.menu;
 
 import domain.Order;
 

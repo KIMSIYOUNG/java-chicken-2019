@@ -1,4 +1,4 @@
-package domain.payment;
+package domain.payment.discountpolicy.total;
 
 public enum PaymentTypeGroup {
 	PAYCO,

@@ -1,9 +1,9 @@
 package view;
 
 import java.util.List;
-import java.util.Map;
 
 import domain.Menu;
+import domain.Order;
 import domain.Table;
 import domain.TableRepository;
 
@@ -60,10 +60,10 @@ public class OutputView {
 		System.out.println("\n등록이 완료되었습니다. 맛있게 드시길");
 	}
 
-	public static void printOrder(Map<Menu, Integer> order) {
+	public static void printOrder(Order order) {
 		System.out.println("## 주문 내역");
 		System.out.printf("%10s %10s %10s", "메뉴", "수량", "금액\n");
-		order.entrySet()
+		order.getOrder().entrySet()
 			.stream()
 			.filter(entry -> entry.getValue() != 0)
 			.forEach(item -> System.out.printf("%10s %10s %10s\n",

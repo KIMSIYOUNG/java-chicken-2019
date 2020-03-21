@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import domain.MenuRepository;
 import domain.Order;
+import domain.payment.discountpolicy.menu.BeverageDiscount;
+import domain.payment.discountpolicy.menu.ChickenDiscount;
+import domain.payment.discountpolicy.total.PaymentType;
 
 class PaymentTest {
 	private final Order order = new Order();

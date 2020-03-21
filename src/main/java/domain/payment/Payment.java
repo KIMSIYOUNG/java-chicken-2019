@@ -1,6 +1,8 @@
 package domain.payment;
 
 import domain.Order;
+import domain.payment.discountpolicy.menu.DiscountPolicy;
+import domain.payment.discountpolicy.total.PaymentType;
 
 public class Payment {
 	private final Order order;

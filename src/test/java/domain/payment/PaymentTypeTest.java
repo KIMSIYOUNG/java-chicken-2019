@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import domain.payment.discountpolicy.total.PaymentType;
+
 class PaymentTypeTest {
 	@Test
 	@DisplayName("정상적으로 올바른 객체를 반환하는지 테스트합니다.")

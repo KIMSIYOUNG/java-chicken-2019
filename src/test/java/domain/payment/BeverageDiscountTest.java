@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import domain.Menu;
 import domain.MenuRepository;
 import domain.Order;
+import domain.payment.discountpolicy.menu.BeverageDiscount;
 
 class BeverageDiscountTest {
 	@ParameterizedTest

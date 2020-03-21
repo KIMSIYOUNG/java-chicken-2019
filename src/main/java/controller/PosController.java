@@ -5,9 +5,9 @@ import domain.Menu;
 import domain.MenuRepository;
 import domain.Table;
 import domain.TableRepository;
-import domain.payment.BeverageDiscount;
 import domain.payment.Payment;
-import domain.payment.PaymentType;
+import domain.payment.discountpolicy.menu.BeverageDiscount;
+import domain.payment.discountpolicy.total.PaymentType;
 import view.InputView;
 import view.OutputView;
 
@@ -46,7 +46,7 @@ public class PosController {
 
 	private void payment() {
 		Table table = TableRepository.findById(InputView.inputTableId());
-		OutputView.printOrder(table.getOrder().getOrder());
+		OutputView.printOrder(table.getOrder());
 		OutputView.printPayment(table);
 		PaymentType paymentType = PaymentType.of(InputView.inputPaymentType());
 		Payment payment = new Payment(table.getOrder(), new BeverageDiscount(), paymentType);

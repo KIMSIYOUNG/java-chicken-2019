@@ -1,4 +1,4 @@
-package domain.payment;
+package domain.payment.discountpolicy.total;
 
 import java.util.Arrays;
 
