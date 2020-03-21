@@ -1,20 +1,36 @@
 package domain;
 
 public class Menu {
-    private final int number;
-    private final String name;
-    private final Category category;
-    private final int price;
+	private final MenuId id;
+	private final String name;
+	private final MenuType menuType;
+	private final int price;
 
-    public Menu(final int number, final String name, final Category category, final int price) {
-        this.number = number;
-        this.name = name;
-        this.category = category;
-        this.price = price;
-    }
+	public Menu(MenuId id, String name, MenuType menuType, int price) {
+		this.id = id;
+		this.name = name;
+		this.menuType = menuType;
+		this.price = price;
+	}
 
-    @Override
-    public String toString() {
-        return category + " " + number + " - " + name + " : " + price + "원";
-    }
+	public boolean isSameId(String menuId) {
+		return this.id.equals(MenuId.of(menuId));
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public boolean isChicken() {
+		return this.menuType.isChicken();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String toString() {
+		return "[" + menuType + "] " + id + " - " + name + " : " + price + "원";
+	}
 }

@@ -5,18 +5,23 @@ import java.util.Collections;
 import java.util.List;
 
 public class TableRepository {
-    private static final List<Table> tables = new ArrayList<>();
+	private static final int TABLE_COUNT = 8;
+	private static final List<Table> tables = new ArrayList<>();
 
-    static {
-        tables.add(new Table(1));
-        tables.add(new Table(2));
-        tables.add(new Table(3));
-        tables.add(new Table(5));
-        tables.add(new Table(6));
-        tables.add(new Table(8));
-    }
+	static {
+		for (int i = 1; i <= TABLE_COUNT; i++) {
+			tables.add(new Table(TableId.of(String.valueOf(i))));
+		}
+	}
 
-    public static List<Table> tables() {
-        return Collections.unmodifiableList(tables);
-    }
+	public static Table findById(String tableId) {
+		return tables.stream()
+			.filter(table -> table.isSameId(TableId.of(tableId)))
+			.findFirst()
+			.orElseThrow(IllegalArgumentException::new);
+	}
+
+	public static List<Table> getTables() {
+		return Collections.unmodifiableList(tables);
+	}
 }
