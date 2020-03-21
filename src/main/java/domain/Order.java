@@ -16,11 +16,6 @@ public class Order {
 		}
 	}
 
-	public void initOrder() {
-		order.keySet().stream()
-			.forEach(key -> order.put(key, 0));
-	}
-
 	public void add(Menu menu, int count) {
 		validateCount(menu, count);
 		order.put(menu, order.get(menu) + count);
@@ -29,10 +24,6 @@ public class Order {
 	private void validateCount(Menu menu, int count) {
 		if (order.get(menu) + count > MAX_MENU_COUNT)
 			throw new IllegalArgumentException("하나의 메뉴는 99개만 주문할 수 있습니다.");
-	}
-
-	public Map<Menu, Integer> getOrder() {
-		return Collections.unmodifiableMap(order);
 	}
 
 	public int calculatePrice() {
@@ -56,7 +47,16 @@ public class Order {
 			.sum();
 	}
 
+	public void initOrder() {
+		order.keySet().stream()
+			.forEach(key -> order.put(key, 0));
+	}
+
 	public boolean isNotOrdered() {
 		return calculatePrice() == 0;
+	}
+
+	public Map<Menu, Integer> getOrder() {
+		return Collections.unmodifiableMap(order);
 	}
 }
