@@ -18,12 +18,13 @@ public class Order {
 
 	public void add(Menu menu, int count) {
 		validateCount(menu, count);
-		order.put(menu, order.get(menu) + count);
+		order.computeIfPresent(menu, (key, value) -> value + count);
 	}
 
 	private void validateCount(Menu menu, int count) {
-		if (order.get(menu) + count > MAX_MENU_COUNT)
+		if (order.get(menu) + count > MAX_MENU_COUNT) {
 			throw new IllegalArgumentException("하나의 메뉴는 99개만 주문할 수 있습니다.");
+		}
 	}
 
 	public int calculatePrice() {

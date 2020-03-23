@@ -23,7 +23,8 @@ class MenuIdTest {
 	@Test
 	@DisplayName("존재하지 않는 아이디가 입력되는 경우 예외를 반환합니다.")
 	void ofOverRange() {
-		System.out.println(MenuId.of("12"));
+		assertThatThrownBy(() -> MenuId.of("13"))
+			.isInstanceOf(IllegalArgumentException.class);
 	}
 
 	@Test

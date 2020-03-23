@@ -26,7 +26,7 @@ public class MenuId {
 	}
 
 	private static void containKey(String id) {
-		if (menuId.containsKey(menuId.get(stringToInt(id)))) {
+		if (!menuId.containsKey(stringToInt(id))) {
 			throw new IllegalArgumentException("잘못된 아이디입니다.");
 		}
 	}
